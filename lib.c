@@ -56,7 +56,7 @@ void medioPaso(int pasos){
         PTA -> PSOR |= (0u<<in[a]);
     }
     int secuencias=0;
-    while(pasos > 4){
+    while(pasos > 8){
         secuencias++;
         pasos = pasos - 8;
     }
