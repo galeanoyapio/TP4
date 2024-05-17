@@ -15,7 +15,7 @@ void completoPaso(int pasos){
     for(int j=0; j<secuencias; j++){
         for(int i=1; i<pasos; i++){
             if(pasos = 1) PTA -> PSOR |= (1u<<in[1]);
-            if((pasos <= 4) & (pasos != 1)){
+            if((pasos <= 4) && (pasos != 1)){
                  PTA -> PSOR |= (1u<<in[i]);
                  PTA -> PSOR |= (0u<<in[i-1]);
                 }
@@ -40,7 +40,7 @@ void normalPaso(int pasos){
                 PTA -> PSOR |= (1u<<in[0]);
                 PTA -> PSOR |= (1u<<in[1]);
             } 
-            if((pasos <= 4) & (pasos != 1)){
+            if((pasos <= 4) && (pasos != 1)){
                  PTA -> PSOR |= (1u<<in[i]);
                  PTA -> PSOR |= (1u<<in[i+1]);
                  PTA -> PSOR |= (0u<<in[i-1]);
@@ -63,11 +63,15 @@ void medioPaso(int pasos){
     for(int j=0; j<secuencias; j++){
         for(int i=1; i<pasos; i++){
             if(pasos = 1) PTA -> PSOR |= (1u<<in[1]);
-            if((pasos <= 8) & (pasos != 1)){
-                 PTA -> PSOR |= (1u<<in[i]);
-                 PTA -> PSOR |= (0u<<in[i-1]);
+            if(((pasos%2)==0) && ((pasos!=1))){
+                PTA -> PSOR |= (1u<<in[i]);
+                PTA -> PSOR |= (1u<<in[i+1]);
                 }
-        
+            if(((pasos%2)==1) && ((pasos!=1))){
+                PTA -> PSOR |= (1u<<in[i]);
+                PTA -> PSOR |= (0u<<in[i-1]);
             }
         }
+        
+    }
 }
